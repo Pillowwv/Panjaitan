@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Creative Space</title>
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    color: white;
+    font-family: Arial;
+    overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* LOGO INTERACTIVE */
+.logo {
+    font-size: 80px;
+    font-weight: bold;
+    color: orange;
+    cursor: grab;
+    transition: 0.2s;
+}
+
+.logo:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* BADGE */
+.badge {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 2px solid orange;
+    border-radius: 50px;
+    font-size: 14px;
+}
+
+/* FLOATING ELEMENTS */
+.circle {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: orange;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+/* GALLERY */
+.gallery {
+    padding: 50px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 280px;
+    background: #111;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img,
+.card video {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card p {
+    padding: 10px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="logo" id="logo">MAD</div>
+    <div class="badge">Best Interactive Design</div>
+</div>
+
+<!-- FLOATING ELEMENTS -->
+<div class="circle" style="top:10%; left:20%"></div>
+<div class="circle" style="top:50%; left:70%"></div>
+<div class="circle" style="top:80%; left:30%"></div>
+
+<!-- GALLERY -->
+<div class="gallery">
+
+    <div class="card">
+        <img src="foto1.jpg">
+        <p>Our Moment 📸</p>
+    </div>
+
+    <div class="card">
+        <video autoplay muted loop>
+            <source src="video1.mp4" type="video/mp4">
+        </video>
+        <p>Creative Video 🎬</p>
+    </div>
+
+    <div class="card">
+        <video autoplay muted loop>
+            <source src="video2.mp4" type="video/mp4">
+        </video>
+        <p>Energy Vibes 🔥</p>
+    </div>
+
+</div>
+
+<script>
+// LOGO BISA DIGERAKIN
+const logo = document.getElementById("logo");
+
+logo.onmousedown = function(e) {
+    document.onmousemove = function(e) {
+        logo.style.position = "absolute";
+        logo.style.left = e.pageX + "px";
+        logo.style.top = e.pageY + "px";
+    }
+}
+
+document.onmouseup = function() {
+    document.onmousemove = null;
+}
+</script>
+
+</body>
+</html>
